@@ -4,17 +4,16 @@ Simulation of birthday paradox.
 _Reference_: https://en.wikipedia.org/wiki/Birthday_problem
 
 # definition
+Assumption - year has 365 days.
+
 In probability theory, the birthday problem or birthday paradox concerns 
 the probability that, in a set of n randomly chosen people, some pair of 
 them will have the same birthday.
 
-Assumption - year has 365 days.
-
+Interesting conclusions (based on the assumption that each day of the year 
+is equally probable for a birthday):
 * `99.9%` probability is reached with just 70 people
 * `50%` probability with 23 people. 
-
-These conclusions are based on the assumption that each day of the year 
-(excluding February 29) is equally probable for a birthday.
 
 # proof
 * `50%` probability with 23 people. 
