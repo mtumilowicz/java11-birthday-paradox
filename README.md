@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-birthday-paradox.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-birthday-paradox)
+
 # java11-birthday-paradox
 Simulation of birthday paradox.
 
