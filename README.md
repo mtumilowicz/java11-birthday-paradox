@@ -31,7 +31,43 @@ These conclusions are based on the assumption that each day of the year
 * `99.9%` probability is reached with just 70 people
     * same reasoning as above
 # simulation
+```
+var n = ...;
+var persons = ...;
+double haveSameBirthday = ...;
 
+for (int i = 0; i < n; i++) {
+    if (!StreamDistinctElementsChecker.check(BirthdaySimulator.birthdays(persons))) {
+        haveSameBirthday++;
+    }
+}
+
+var probability = haveSameBirthday / n;
+```
+* `BirthdaySimulator.birthdays(persons)` generates IntStream with size `persons` 
+and range `[1..365]`
+* `StreamDistinctElementsChecker.check(intStream)` checks if given `intStream`
+has all distinct elements (in a quite interesting way)
+    ```
+    static boolean check(IntStream ints) {
+        return ObjectUtils.defaultIfNull(ints, IntStream.empty())
+                .allMatch(new HashSet<>()::add);
+    }    
+    ```
 
 # tests
 During tests we are using https://en.wikipedia.org/wiki/Central_limit_theorem
+
+In a class `SimulationTest`:
+* `probabilityOf22`
+    ```
+    assertThat(probability, lessThan(0.5));
+    ```
+* `probabilityOf23`
+    ```
+    assertThat(probability, greaterThan(0.5));
+    ```
+* `probabilityOf70`
+    ```
+    assertThat(probability, greaterThan(0.99));
+    ```
